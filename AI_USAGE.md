@@ -1,16 +1,13 @@
 # AI usage
 
-<!-- Replace every comment below with your own words. Short is fine. The grader checks only
-     that this file exists and has been changed from this template; your Track Mentor reads it. -->
-
 ## Tools I used, and for which functions
 
-<!-- e.g. "Claude for a first draft of audit(); Copilot autocomplete in metrics.py" -->
+I used ChatGPT to understand the task requirements, plan and implement `audit()` in `rawaj/audit.py`, develop the validation and threshold metrics in `rawaj/metrics.py`, interpret test results, and improve the decision framing in `FRAMING.md`.
 
 ## One place where the AI was wrong, incomplete, or not what the spec said
 
-<!-- What did it produce, and how did you notice: a test, the docs, or your own reasoning? -->
+The AI used average cost per transaction in `expected_cost()`, although I needed to verify whether the specification expected average cost or total cost. I noticed this assumption while reviewing the implementation. Dividing all candidate costs by the same number of transactions does not change which threshold minimizes cost, but it changes the reported cost value.
 
-## The function I wrote without AI, and why
+## The function I worked on without AI, and why
 
-<!-- Which one, and what you learned by writing it yourself. -->
+I independently rewrote and checked `confusion_at()` to understand how a threshold converts risk scores into flagged and unflagged predictions. I practiced counting true positives (TP), false positives (FP), true negatives (TN), and false negatives (FN). This helped me understand the confusion matrix and how it supports precision, recall, and threshold evaluation.
